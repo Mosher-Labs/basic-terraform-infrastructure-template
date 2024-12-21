@@ -1,0 +1,8 @@
+---
+on:
+  schedule:
+    - cron: "21 6 * * *"
+
+jobs:
+  pre-commit:
+    uses: "Mosher-Labs/.github/.github/workflows/stale.yml@main"
