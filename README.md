@@ -36,6 +36,46 @@ To use this repository template, simply fork the repo.
 gh repo fork --fork-name <FORK_NAME> --org <ORG_NAME>
 ```
 
+Update the repository settings:
+
+```bash
+gh repo edit --add-topic devops,reliability-engineering,axes \
+--add-topic infrastructure-as-code,viking,mosher-labs \
+--delete-branch-on-merge --enable-discussions=false \
+--enable-issues=false --enable-merge-commit=false \
+--enable-projects=false --enable-rebase-merge=false \
+--enable-wiki=false
+```
+
+Create a ruleset for the default branch.
+
+- Ruleset Name: Default branch
+- Enforcement status: Active
+- Target Branches: Default
+- ✅ Restrict deletions
+- ✅ Require linear history
+- ✅ Require signed commits
+- ✅ Require a pull request before merging
+- ✅ Dismiss stale pull request approvals when new commits are pushed
+- ✅ Require conversation resolution before merging
+- Allowed merge methods: "Squash"
+- ✅ Require status checks to pass
+- ✅ Require branches to be up to date before merging
+- ✅ Do not require status checks on creation
+- Status checks that are required: `pre-commit/pre-commit`
+- ✅ Block force pushes
+- ✅ Require code scanning results
+
+Enable dependabot.
+
+- In Github UI, navigate to the repositories Settings > Code security
+- Enable Dependabot security updates
+- Enabnle Grouped security updates
+- Enable Dependabot version updates
+- Enable Dependabot on Actions runners
+- CodeQL analysis > Set up > Default
+- Enable Secret scanning
+
 Update the templated information:
 
 ### README.md
