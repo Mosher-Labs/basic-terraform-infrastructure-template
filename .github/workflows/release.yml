@@ -8,5 +8,5 @@ permissions:
   contents: write
 
 jobs:
-  pre-commit:
+  release:
     uses: "Mosher-Labs/.github/.github/workflows/release.yml@main"
