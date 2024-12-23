@@ -1,4 +1,8 @@
 ---
+default_install_hook_types:
+  - pre-commit
+  - commit-msg
+
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v5.0.0
@@ -21,10 +25,18 @@ repos:
     hooks:
       - id: yamllint
   - repo: https://github.com/markdownlint/markdownlint
-    rev: v0.13.0
+    rev: v0.12.0
     hooks:
       - id: markdownlint_docker
+  - repo: https://github.com/rhysd/actionlint
+    rev: v1.7.4
+    hooks:
+      - id: actionlint-docker
   - repo: https://github.com/bridgecrewio/checkov
-    rev: 3.2.343
+    rev: 3.2.344
     hooks:
       - id: checkov_container
+  - repo: https://github.com/compilerla/conventional-pre-commit
+    rev: v4.0.0
+    hooks:
+      - id: conventional-pre-commit
