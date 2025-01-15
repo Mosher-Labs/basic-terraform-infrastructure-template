@@ -29,14 +29,26 @@ repos:
     hooks:
       - id: markdownlint_docker
   - repo: https://github.com/rhysd/actionlint
-    rev: v1.7.4
+    rev: v1.7.6
     hooks:
       - id: actionlint-docker
   - repo: https://github.com/bridgecrewio/checkov
-    rev: 3.2.344
+    rev: 3.2.353
     hooks:
       - id: checkov_container
   - repo: https://github.com/compilerla/conventional-pre-commit
     rev: v4.0.0
     hooks:
       - id: conventional-pre-commit
+  - repo: https://github.com/antonbabenko/pre-commit-terraform
+    rev: v1.96.3
+    hooks:
+      - id: infracost_breakdown
+      - id: terraform_docs
+      - id: terraform_fmt
+      - id: terraform_providers_lock
+      - id: terraform_tflint
+      - id: terraform_trivy
+      - id: terraform_validate
+      - id: terrascan
+      - id: tfupdate
