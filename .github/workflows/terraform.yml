@@ -5,7 +5,3 @@ on:
 jobs:
   ci:
     uses: "mosher-labs/.github/.github/workflows/terraform.yml@feat-add-terraform-plan"
-    with:
-      enable-cost: false
-    secrets:
-      INFRACOST_API_KEY: ${{ secrets.INFRACOST_API_KEY }}
