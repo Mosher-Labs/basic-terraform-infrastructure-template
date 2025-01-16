@@ -4,4 +4,4 @@ on:
 
 jobs:
   ci:
-    uses: "mosher-labs/.github/.github/workflows/terraform.yml@feat-add-terraform-plan"
+    uses: "Mosher-Labs/.github/.github/workflows/terraform.yml@feat-add-terraform-plan"
