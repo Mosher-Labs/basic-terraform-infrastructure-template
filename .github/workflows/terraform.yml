@@ -2,13 +2,12 @@
 on:
   push:
 
-permissions:
-  contents: write
-  issues: write
-  pull-requests: write
-
 jobs:
   ci:
     uses: "Mosher-Labs/.github/.github/workflows/terraform.yml@feat-add-terraform-plan"
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
     secrets:
       HEIMDALLR_TOKEN: ${{ secrets.HEIMDALLR_TOKEN }}
