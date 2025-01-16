@@ -9,3 +9,5 @@ permissions:
 jobs:
   ci:
     uses: "Mosher-Labs/.github/.github/workflows/terraform.yml@feat-add-terraform-plan"
+    secrets:
+      HEIMDALLR_TOKEN: ${{ secrets.HEIMDALLR_TOKEN }}
