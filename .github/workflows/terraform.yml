@@ -4,10 +4,12 @@ on:
 
 jobs:
   ci:
-    uses: "Mosher-Labs/.github/.github/workflows/terraform.yml@v0.9.0"
+    uses: "Mosher-Labs/.github/.github/workflows/terraform.yml@feat-add-terraform-apply"
     permissions:
       contents: write
       issues: write
       pull-requests: write
+    with:
+      enable_apply: true
     secrets:
       HEIMDALLR_TOKEN: ${{ secrets.HEIMDALLR_TOKEN }}
