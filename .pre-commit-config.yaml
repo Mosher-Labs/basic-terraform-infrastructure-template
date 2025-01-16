@@ -28,6 +28,8 @@ repos:
     rev: v0.12.0
     hooks:
       - id: markdownlint_docker
+        # TODO: Figure out how to not need this file
+        args: [-s, .markdownlint.rb]
   - repo: https://github.com/rhysd/actionlint
     rev: v1.7.6
     hooks:
@@ -40,15 +42,26 @@ repos:
     rev: v4.0.0
     hooks:
       - id: conventional-pre-commit
+  - repo: https://github.com/equisoft-devops/equisoft-pre-commit.git
+    rev: v1.1.2
+    hooks:
+      - id: tfsort
   - repo: https://github.com/antonbabenko/pre-commit-terraform
     rev: v1.96.3
     hooks:
-      - id: infracost_breakdown
-      - id: terraform_docs
+      - id: terraform_validate
+        args:
+          - --hook-config=--retry-once-with-cleanup=true
+          - --tf-init-args=-upgrade
       - id: terraform_fmt
       - id: terraform_providers_lock
-      - id: terraform_tflint
-      - id: terraform_trivy
-      - id: terraform_validate
-      - id: terrascan
+        args:
+          - --hook-config=--mode=always-regenerate-lockfile
       - id: tfupdate
+      - id: terraform_tflint
+      - id: terraform_docs
+      - id: terraform_trivy
+      - id: terrascan
+      - id: infracost_breakdown
+        args:
+          - --args=--path=.

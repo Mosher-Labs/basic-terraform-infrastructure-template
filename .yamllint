@@ -1,4 +1,8 @@
+---
 extends: default
+
+yaml-files:
+  - '!.terraform'
 
 rules:
   line-length:

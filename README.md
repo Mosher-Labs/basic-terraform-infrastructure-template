@@ -114,6 +114,40 @@ pre-commit autoupdate
 
 ## 📄 Documentation
 
-<!-- BEGIN_TF_DOCS -->
+<!-- markdownlint-disable MD013 -->
 
+<!-- BEGIN_TF_DOCS -->
+## Requirements
+
+| Name | Version |
+|------|---------|
+| terraform | 1.10.4 |
+| aws | ~> 5 |
+| null | ~> 3 |
+
+## Providers
+
+| Name | Version |
+|------|---------|
+| null | 3.2.3 |
+
+## Modules
+
+No modules.
+
+## Resources
+
+| Name | Type |
+|------|------|
+| [null_resource.this](https://registry.terraform.io/providers/hashicorp/null/latest/docs/resources/resource) | resource |
+
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| config | The config for creating this infrastructure. | ```object({ name = string })``` | n/a | yes |
+
+## Outputs
+
+No outputs.
 <!-- END_TF_DOCS -->
