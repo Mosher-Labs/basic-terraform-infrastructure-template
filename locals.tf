@@ -1,3 +1,3 @@
 locals {
-  name = "${var.config.name}-${random_string.random.result}"
+  name = "${var.config.name}_${random_string.random.result}"
 }
