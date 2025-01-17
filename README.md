@@ -124,12 +124,14 @@ pre-commit autoupdate
 | terraform | 1.10.4 |
 | aws | ~> 5 |
 | null | ~> 3 |
+| random | ~> 3 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
 | null | 3.2.3 |
+| random | 3.6.3 |
 
 ## Modules
 
@@ -140,6 +142,7 @@ No modules.
 | Name | Type |
 |------|------|
 | [null_resource.this](https://registry.terraform.io/providers/hashicorp/null/latest/docs/resources/resource) | resource |
+| [random_string.random](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string) | resource |
 
 ## Inputs
 
@@ -149,5 +152,7 @@ No modules.
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| name | The name created and used. |
 <!-- END_TF_DOCS -->
