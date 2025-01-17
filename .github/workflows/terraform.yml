@@ -8,8 +8,7 @@ jobs:
   terraform:
     uses: "Mosher-Labs/.github/.github/workflows/terraform.yml@feat-add-terraform-apply"
     with:
-      # enable_apply: ${{ github.event.pull_request.merged && true || false }}
-      enable_apply: true
+      enable_apply: ${{ github.event.pull_request.merged && true || false }}
 
   heimdallr_plan:
     if: github.event_name == 'pull_request'
@@ -27,7 +26,7 @@ jobs:
       enable_comment_on_pr: true
 
   heimdallr_apply:
-    # if: github.event.pull_request.merged
+    if: github.event.pull_request.merged
     needs: terraform
     uses: "Mosher-Labs/.github/.github/workflows/heimdallr.yml@feat-add-terraform-apply"
     permissions:
