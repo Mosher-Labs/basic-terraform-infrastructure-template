@@ -1,7 +1,6 @@
 ---
 on:
   push:
-  pull_request:
 
 jobs:
   terraform:
@@ -29,10 +28,6 @@ jobs:
     if: github.event.pull_request.merged
     needs: terraform
     uses: "Mosher-Labs/.github/.github/workflows/heimdallr.yml@feat-add-terraform-apply"
-    permissions:
-      contents: write
-      issues: write
-      pull-requests: write
     secrets: inherit
     with:
       enable_slack: true
