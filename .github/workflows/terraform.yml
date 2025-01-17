@@ -1,6 +1,7 @@
 ---
 on:
   push:
+  pull_request:
 
 permissions: read-all
 
@@ -11,7 +12,7 @@ jobs:
       enable_apply: ${{ github.event.pull_request.merged && true || false }}
 
   heimdallr_plan:
-    if: github.event_name == 'pull_request'
+    if: github.event_name == 'pull_request' && !github.event.pull_request.merged
     needs: terraform
     uses: "Mosher-Labs/.github/.github/workflows/heimdallr.yml@feat-add-terraform-apply"
     permissions:
