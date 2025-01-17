@@ -1,15 +1,49 @@
 ---
 on:
   push:
+  pull_request:
 
 jobs:
-  ci:
+  terraform:
     uses: "Mosher-Labs/.github/.github/workflows/terraform.yml@feat-add-terraform-apply"
+    with:
+      enable_apply: true
+    secrets:
+      HEIMDALLR_TOKEN:
+        ${{ secrets.HEIMDALLR_TOKEN }}
+
+        # TODO: Figure out why this is complaining about a checkout
+      # - name: Comment on PR
+      #   uses: ./.github/workflows/heimdallr.yml
+      #   with:
+      #     comment_content: \`\`\`\n${{ steps.plan.outputs.plan_file }}\`\`\`
+      #     comment_identifier: <!-- heimdallr_terraform_plan_comment -->
+      #     comment_label: Terraform Plan Output
+      #     enable_comment_on_pr: true
+  heimdallr_plan:
+    if: github.event_name == 'pull_request'
+    needs: terraform
+    uses: "Mosher-Labs/.github/.github/workflows/heimdallr.yml@feat-add-terraform-apply"
     permissions:
       contents: write
       issues: write
       pull-requests: write
+    secrets: inherit
     with:
-      enable_apply: true
-    secrets:
-      HEIMDALLR_TOKEN: ${{ secrets.HEIMDALLR_TOKEN }}
+      comment_content: \`\`\`\n${{ needs.terraform.outputs.plan_file }}\`\`\`
+      comment_identifier: <!-- heimdallr_terraform_plan_comment -->
+      comment_label: Terraform Plan Output
+      enable_comment_on_pr: true
+
+  heimdallr_apply:
+    if: github.event.pull_request.merged == true
+    needs: terraform
+    uses: "Mosher-Labs/.github/.github/workflows/heimdallr.yml@feat-add-terraform-apply"
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+    secrets: inherit
+    with:
+      enable_slack: true
+      slack_message: "The project <https://github.com/${{ github.repository }}|${{ github.repository }}> just applied new Terraform. <https://github.com/${{ github.repository }}/actions/runs/${{github.run_id}}>"
