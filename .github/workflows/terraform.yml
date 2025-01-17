@@ -7,19 +7,9 @@ jobs:
   terraform:
     uses: "Mosher-Labs/.github/.github/workflows/terraform.yml@feat-add-terraform-apply"
     with:
+      # enable_apply: ${{ github.event.pull_request.merged && true || false }}
       enable_apply: true
-    secrets:
-      HEIMDALLR_TOKEN:
-        ${{ secrets.HEIMDALLR_TOKEN }}
 
-        # TODO: Figure out why this is complaining about a checkout
-      # - name: Comment on PR
-      #   uses: ./.github/workflows/heimdallr.yml
-      #   with:
-      #     comment_content: \`\`\`\n${{ steps.plan.outputs.plan_file }}\`\`\`
-      #     comment_identifier: <!-- heimdallr_terraform_plan_comment -->
-      #     comment_label: Terraform Plan Output
-      #     enable_comment_on_pr: true
   heimdallr_plan:
     if: github.event_name == 'pull_request'
     needs: terraform
@@ -36,7 +26,7 @@ jobs:
       enable_comment_on_pr: true
 
   heimdallr_apply:
-    if: github.event.pull_request.merged == true
+    if: github.event.pull_request.merged
     needs: terraform
     uses: "Mosher-Labs/.github/.github/workflows/heimdallr.yml@feat-add-terraform-apply"
     permissions:
