@@ -122,7 +122,6 @@ pre-commit autoupdate
 | Name | Version |
 |------|---------|
 | terraform | 1.10.4 |
-| aws | ~> 5 |
 | null | ~> 3 |
 | random | ~> 3 |
 
