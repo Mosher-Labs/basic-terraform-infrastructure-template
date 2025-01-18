@@ -15,6 +15,14 @@ jobs:
     with:
       enable_apply: ${{ github.event.pull_request.merged && true || false }}
 
+  two:
+    runs-on: ubuntu-latest
+    needs: terraform
+    steps:
+      - name: two-1
+        run: |
+          echo needs.terraform.outputs
+
   heimdallr_plan:
     if: github.event_name == 'pull_request' && !github.event.pull_request.merged
     needs: terraform
