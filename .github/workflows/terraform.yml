@@ -21,7 +21,7 @@ jobs:
     steps:
       - name: two-1
         run: |
-          echo needs.terraform.outputs
+          echo "${{ toJSON(needs.terraform.outputs) }}"
 
   heimdallr_plan:
     if: github.event_name == 'pull_request' && !github.event.pull_request.merged
