@@ -27,7 +27,7 @@ jobs:
     with:
       # comment_content: '\`\`\`\n${{ needs.terraform.outputs.plan_file }}\`\`\`'
       comment_content: "blegh"
-      comment_identifier: "<!-- heimdallr_terraform_plan_comment -->"
+      # comment_identifier: `\<\!\-\- heimdallr\_terraform\_plan\_comment \-\-\>`
       comment_label: Terraform Plan Output
       enable_comment_on_pr: true
 
