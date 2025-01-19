@@ -15,5 +15,6 @@ permissions:
 jobs:
   terraform:
     uses: "Mosher-Labs/.github/.github/workflows/terraform.yml@feat-add-terraform-apply"
+    secrets: inherit
     with:
       enable_apply: ${{ github.event.pull_request.merged && true || false }}
