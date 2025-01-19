@@ -1,0 +1,6 @@
+---
+formatter: "markdown"
+
+settings:
+  anchor: false
+  html: false

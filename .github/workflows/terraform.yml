@@ -1,0 +1,20 @@
+---
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+
+jobs:
+  terraform:
+    uses: "Mosher-Labs/.github/.github/workflows/terraform.yml@main"
+    secrets: inherit
+    with:
+      enable_apply: ${{ github.event.pull_request.merged && true || false }}

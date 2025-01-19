@@ -16,4 +16,5 @@ jobs:
     permissions: read-all
     secrets: inherit
     with:
+      enable_slack: true
       slack_message: "The project <https://github.com/${{ github.repository }}|${{ github.repository }}> just released version <https://github.com/${{ github.repository }}/releases/tag/${{ needs.release.outputs.next_version }}|${{ needs.release.outputs.next_version }}>."

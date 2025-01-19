@@ -1,32 +1,37 @@
-# basic-repo-template
+# basic-terraform-infrastructure-template
 
-![GitHub branch status](https://img.shields.io/github/checks-status/mosher-labs/basic-repo-template/main)
-![GitHub Issues](https://img.shields.io/github/issues/mosher-labs/basic-repo-template)
-![GitHub last commit](https://img.shields.io/github/last-commit/mosher-labs/basic-repo-template)
-![GitHub repo size](https://img.shields.io/github/repo-size/mosher-labs/basic-repo-template)
-![Libraries.io dependency status for GitHub repo](https://img.shields.io/librariesio/github/mosher-labs/basic-repo-template)
-![GitHub License](https://img.shields.io/github/license/mosher-labs/basic-repo-template)
+![GitHub branch status](https://img.shields.io/github/checks-status/mosher-labs/basic-terraform-infrastructure-template/main)
+![GitHub Issues](https://img.shields.io/github/issues/mosher-labs/basic-terraform-infrastructure-template)
+![GitHub last commit](https://img.shields.io/github/last-commit/mosher-labs/basic-terraform-infrastructure-template)
+![GitHub repo size](https://img.shields.io/github/repo-size/mosher-labs/basic-terraform-infrastructure-template)
+![Libraries.io dependency status for GitHub repo](https://img.shields.io/librariesio/github/mosher-labs/basic-terraform-infrastructure-template)
+![GitHub License](https://img.shields.io/github/license/mosher-labs/basic-terraform-infrastructure-template)
 ![GitHub Sponsors](https://img.shields.io/github/sponsors/mosher-labs)
 
-## Introduction
+## 🌍 Basic Terraform Infrastructure Template 🛠️
 
-🚀 This repository serves as a basic template for creating new
-repositories. It's designed to be a foundation for structure and
-organization. 🎯
+Welcome to the Basic Terraform Infrastructure Template
+repository! 🚀 This repo provides a foundational template for
+creating Terraform configurations that instantiate and manage
+infrastructure using reusable modules. 🎯
 
-### 🌍 Key Features
+### 🌟 Key Features
 
-- 📦 A clean, reusable structure for quick repo setup.
-- 🗣️ Language-specific templates can inherit and extend from this base.
-- 🔄 Easily customizable for various projects and use cases.
+- 📂 Pre-organized structure for defining environments and
+  instantiating Terraform modules.
+- 🛠️ Includes examples for integrating modules, variables, and
+  outputs.
+- 🔧 Follows Terraform best practices for scalability and
+  maintainability.
+- 🌐 Compatible with various cloud providers and modular setups.
 
 ### ✨ Perfect for
 
-- Developers looking for a clean start 🛠️
-- Language-specific templates 👨‍💻
-- Seamless repository setup for quick deployments ⚡
+- Teams and individuals setting up new infrastructure projects quickly ⚙️
+- Learning Terraform through a practical, modular approach 📚
+- Standardizing infrastructure deployments with reusable templates 🚀
 
-Feel free to fork, extend, and contribute! 🤝
+Start building your infrastructure with ease and confidence! 🤝
 
 ## Usage
 
@@ -44,7 +49,7 @@ gh repo edit --add-topic devops,reliability-engineering,axes \
 --delete-branch-on-merge --enable-discussions=false \
 --enable-issues=false --enable-merge-commit=false \
 --enable-projects=false --enable-rebase-merge=false \
---enable-wiki=false
+--enable-wiki=false --add-topic terraform
 ```
 
 Create a ruleset for the default branch.
@@ -82,7 +87,7 @@ Update the templated information:
 
 ### README.md
 
-- [ ] Replace `basic-repo-template` with your `<FORK_NAME>`
+- [ ] Replace `basic-terraform-infrastructure-template` with your `<FORK_NAME>`
 - [ ] Update the "Introduction" section
 - [ ] Update the "Usage" section
 - [ ] Update the "Contributing" section
@@ -106,3 +111,47 @@ To update pre-commit hooks, this ideally should be ran before a pull request is 
 ```bash
 pre-commit autoupdate
 ```
+
+## 📄 Documentation
+
+<!-- markdownlint-disable MD013 -->
+
+<!-- BEGIN_TF_DOCS -->
+## Requirements
+
+| Name | Version |
+|------|---------|
+| terraform | 1.10.4 |
+| null | ~> 3 |
+| random | ~> 3 |
+
+## Providers
+
+| Name | Version |
+|------|---------|
+| null | 3.2.3 |
+| random | 3.6.3 |
+
+## Modules
+
+No modules.
+
+## Resources
+
+| Name | Type |
+|------|------|
+| [null_resource.this](https://registry.terraform.io/providers/hashicorp/null/latest/docs/resources/resource) | resource |
+| [random_string.random](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string) | resource |
+
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| config | The config for creating this infrastructure. | ```object({ name = string })``` | n/a | yes |
+
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| name | The name created and used. |
+<!-- END_TF_DOCS -->
