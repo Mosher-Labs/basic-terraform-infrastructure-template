@@ -17,4 +17,4 @@ jobs:
     uses: "Mosher-Labs/.github/.github/workflows/terraform.yml@main"
     secrets: inherit
     with:
-      enable_apply: ${{ github.event.pull_request.merged && true || false }}
+      enable_apply: ${{ github.ref == 'refs/heads/main' && true || false }}
