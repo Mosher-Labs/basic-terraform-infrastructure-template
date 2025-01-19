@@ -68,7 +68,7 @@ Create a ruleset for the default branch.
 - ✅ Require status checks to pass
 - ✅ Require branches to be up to date before merging
 - ✅ Do not require status checks on creation
-- Status checks that are required: `pre-commit/pre-commit`
+- Status checks that are required: `pre-commit/pre-commit` and `terraform/terraform`
 - ✅ Block force pushes
 - ✅ Require code scanning results
 
