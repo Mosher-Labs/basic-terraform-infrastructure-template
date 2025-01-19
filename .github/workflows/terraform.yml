@@ -1,11 +1,6 @@
 ---
 on:
   push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
 
 permissions:
   contents: write
@@ -14,7 +9,7 @@ permissions:
 
 jobs:
   terraform:
-    uses: "Mosher-Labs/.github/.github/workflows/terraform.yml@main"
+    uses: "Mosher-Labs/.github/.github/workflows/terraform.yml@fix-comment-pr"
     secrets: inherit
     with:
-      enable_apply: ${{ github.event.pull_request.merged && true || false }}
+      enable_apply: ${{ github.ref == 'refs/heads/main' && true || false }}
