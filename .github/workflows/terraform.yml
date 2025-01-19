@@ -26,7 +26,7 @@ jobs:
   heimdallr_plan:
     if: github.event_name == 'pull_request' && !github.event.pull_request.merged
     needs: terraform
-    uses: "Mosher-Labs/.github/.github/workflows/heimdallr.yml@feat-add-terraform-apply"
+    uses: "Mosher-Labs/.github/.github/workflows/heimdallr/action.yml@feat-add-terraform-apply"
     permissions:
       contents: write
       issues: write
@@ -41,7 +41,7 @@ jobs:
   heimdallr_apply:
     if: github.event.pull_request.merged
     needs: terraform
-    uses: "Mosher-Labs/.github/.github/workflows/heimdallr.yml@feat-add-terraform-apply"
+    uses: "Mosher-Labs/.github/.github/workflows/heimdallr/action.yml@feat-add-terraform-apply"
     permissions:
       contents: write
       issues: write
