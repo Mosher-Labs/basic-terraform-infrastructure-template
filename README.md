@@ -121,7 +121,7 @@ pre-commit autoupdate
 
 | Name | Version |
 |------|---------|
-| terraform | 1.10.4 |
+| terraform | 1.13.5 |
 | null | ~> 3 |
 | random | ~> 3 |
 
