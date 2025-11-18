@@ -3,21 +3,17 @@ on:
   push:
     branches:
       - main
+  pull_request:
+    branches:
+      - main
+
+permissions: read-all
 
 jobs:
   release:
-    uses: "Mosher-Labs/.github/.github/workflows/release.yml@main"
-    permissions:
-      contents: write
-
-  heimdallr:
-    needs: release
-    uses: "Mosher-Labs/.github/.github/workflows/heimdallr.yml@main"
+    uses: "Mosher-Labs/.github/.github/workflows/release.yml@v0.10.3"
     permissions:
       contents: write
       issues: write
       pull-requests: write
     secrets: inherit
-    with:
-      enable_slack: true
-      slack_message: "The project <https://github.com/${{ github.repository }}|${{ github.repository }}> just released version <https://github.com/${{ github.repository }}/releases/tag/${{ needs.release.outputs.next_version }}|${{ needs.release.outputs.next_version }}>."
