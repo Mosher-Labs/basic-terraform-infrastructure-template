@@ -12,4 +12,12 @@ terraform {
       version = "~> 3"
     }
   }
+
+  cloud {
+    organization = "mosher-labs"
+
+    workspaces {
+      name = "basic_terraform_infrastructure_template"
+    }
+  }
 }

@@ -9,7 +9,7 @@ permissions:
 
 jobs:
   terraform:
-    uses: "Mosher-Labs/.github/.github/workflows/terraform.yml@main"
+    uses: "Mosher-Labs/.github/.github/workflows/terraform.yml@feat-tcloud-state"
     secrets: inherit
     with:
       enable_apply: ${{ github.ref == 'refs/heads/main' && true || false }}
